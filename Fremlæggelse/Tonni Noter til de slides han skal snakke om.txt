@@ -1,0 +1,82 @@
+stikord til eksamensslides:
+
+slide 9:
+
+MoSCOW metoden ( en teknik til at priotere krav )
+
+Must(skal) have this.
+Should(bør)  have this if possible
+could( kunne ) have this if it does not affect anything.
+Won't have this time, but would like in the future.
+
+FURPS+:
+
+Functionality
+Usability
+Reliability
+Performance
+Supportability
++ : design and physical constraints, interfaces, legal, test, reuse etc.
+
+Ved at kombinere de to kan man som eksempel finde frem til reliability kravet
+Systemet SKAL have en mean time between failure på 95%
+
+og Performance kravet:
+Systemet BØR kommunikere med op til 60 bit/s ( burde have stået 50 bit/s )
+
+kravet til MTBF beskriver et krav til stabiliteten af systemet
+dog er dette krav formuleret en smule dumt i slutningen af kravet, for
+i realiteten vil en MTBF på 99% egentlig fejle her, der den skal være
+på præcis 95%. Vi burde have skrevet mindst 95%.
+
+ligeledes kan det ses at der anvendes skal og bør Ud fra MoSCoW metoden til at prioritere
+vigtigheden af de enkelte krav.
+
+kravene skal selvfølgelig være testbare og kunne måles så der uden tvivl kan siges om kravet 
+er opfyldt.
+
+
+Slide 25:
+UML diagrammer:
+Til at visualisere sammenhænge i forbindelse med software arkitekturen anvendes der 
+diagrammer efter UML standarden. Dette sikre en ensartet forståelse af de forskellige 
+diagramelementers betydning når softwaren skal implementeres.
+
+Eksempeltvis kan et UML klassediagram der er udarbejdet ud fra domainemodellen samt de enkelte usecases.
+
+
+TAG OVERORDNET KLASSEDIAGRAM FOR STYREBOKSEN
+
+Her kan vi se at en usecase resultere i en control klasse pr usecase, i styreboksen tilfælde er usecase 8 og 9 udeladt, da
+der grundet protokolspecifikationen ikke kan ses forskel på om der er tale om usecase 6, 8 eller 9, og de vil derfor blive håndteret af 
+samme control klasse som usecase 6.
+
+Derudover er den opdelt i UML pakker, hvor der er stor sammenhæng omkring funktionaliteten, eksempeltvis PC Interface og Unithandler pakkerne.
+
+Samtidig kan man se hvilken sammenhæng der er klasserne imellem. 
+
+Diagrammet vil efter der er lavet metodeidentifikation blive anvendt som grundlag for 
+softwarens implementering.
+
+Slides 33 - 34? er det ikke reelt 34-35 eller?
+
+Slide 33
+Mangler billede af prototype.
+
+Der kan via den grafiske brugeflade håndteres enheder tilkoblet systemet.
+
+Når brugeren opretter, ændre eller fjerner en enhed fra systemet lagres dette på styreboksens SD Kort.
+
+Ligeledes vil der lagres en tidsplan for den specifikke enhed når brugeren indstiller tidsplanen for enheden
+via den grafiske brugerflade. 
+Som systemet er i sin nuværende udgave vil brugerens inteaktion med systemet
+Generelt foregå via den grafiske brugerflade.
+
+Slide 34:
+Vis Main vindue af gui.
+Vi har her udviklet en grafisk brugerflade som i kan se her. 
+Denne giver brugeren let adgang til at administrationen af systemet.
+
+
+
+
