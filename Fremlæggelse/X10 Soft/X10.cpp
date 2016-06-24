@@ -18,7 +18,7 @@
 X10::X10(unsigned char houseCode, unsigned char adress) : modtager_(houseCode, adress)
 {
 	houseCode_ = houseCode;
-	unitStatus_ = false;
+	unitStatus_ = true;
 	//timer
 	TCNT4 = 34286;
 	
@@ -178,7 +178,7 @@ void X10::recieveData()
 		modtager_.fetchData(type, data, vali);
 		if(vali == false)
 		{
-			sender_.sendCommand(houseCode_, 0, 111, 0b00);
+			//sender_.sendCommand(houseCode_, 0, 0b111, 0b00);
 		}			
 		else
 		{
@@ -188,7 +188,7 @@ void X10::recieveData()
 			}
 			else if(type == 0b010)
 			{
-				if(data == 0b0)
+				if(data == 0)
 				{
 					unitStatus_ = false;
 				}
@@ -200,7 +200,9 @@ void X10::recieveData()
 				replyOk();
 			}
 			else
-				sender_.sendCommand(houseCode_, 0, 111, 0b01);
+			{
+				//sender_.sendCommand(houseCode_, 0, 0b111, 0b01);
+			}
 		}
 	}
 	else{}
@@ -215,9 +217,11 @@ void X10::switchLight(bool newState)
 	if(newState == true)
 	{
 			PORTB |= (1 << PINB3);
+			PORTB &= ~(1 << PINB2);
 	}
 	else
 	{
+			PORTB |= (1 << PINB2);
 			PORTB &= ~(1 << PINB3);
 	}
 }

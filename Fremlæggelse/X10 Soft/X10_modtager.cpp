@@ -269,7 +269,7 @@ void X10_modtager::receiveData(unsigned char data)
 		else if(currentPacket_ == 0)
 		{
 			TCCR3B &= ~(1 << CS31); //stop timeout
-			data_ = getPacketData();
+			data_ = getPacketData();		
 			packetValidity_ = validatePackets();
 			dataReady_ = true;
 		}
@@ -277,7 +277,9 @@ void X10_modtager::receiveData(unsigned char data)
 	else{}
 		
 	if(notReciving_)
-	{	
+	{
+		PORTB |= (1 << 7);
+		
 		if(checkForZero(data))
 			++numberOfZero_;
 		else
